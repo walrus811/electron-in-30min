@@ -2,14 +2,16 @@
     "name": "filterC",
     "version": "1.0.0",
     "description": "",
-    "main": "main.js",
+    "main": "app/main.js",
     "scripts": {
         "start": "npx electron ."
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {},
+    "dependencies": {
+        "bootstrap": "^4.6.0"
+    },
     "devDependencies": {
         "electron": "^11.2.0",
         "electron-reloader": "^1.2.0"

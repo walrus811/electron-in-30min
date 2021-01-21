@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Filter C</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body style="background: white;">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="cameraSelect">카메라 선택</label>
+        </div>
+        <select class="custom-select" id="cameraSelect">
+        </select>
+        <div class="input-group-append">
+            <button id="applyCameraButton" class="btn btn-primary" type="button">적용</button>
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="filterSelect">필터 선택</label>
+        </div>
+        <select class="custom-select" id="filterSelect">
+        </select>
+        <div class="input-group-append">
+            <button id="applyFilterButton" class="btn btn-primary" type="button">적용</button>
+        </div>
+    </div>
+
+    <video id="video" autoplay></video>
+    <canvas width="300" height="300" id="copyCanvas" hidden></canvas>
+    <canvas width="300" height="300" id="drawCanvas"></canvas>
+    <div id="show"></div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

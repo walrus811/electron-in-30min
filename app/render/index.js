@@ -1,5 +1,17 @@
 const filters = require('../util/filters');
 
+const filterObject = {
+    "없음": filters.noneFilter,
+    "흑백": filters.grayscaleFilter,
+    "밝게": filters.lightFilter,
+    "어둡게": filters.darkFilter,
+    "빨간색 제거": filters.removeRedFilter,
+    "파란색 제거": filters.removeBlueFilter,
+    "초록색 제거": filters.removeGreenFilter,
+    "노이즈 제거": filters.meanBlurFilter,
+    "예술": filters.artFilter,
+};
+
 const copyCanvas = document.getElementById('copyCanvas');
 const copyCanvasCtx = copyCanvas.getContext('2d');
 const drawCanvas = document.getElementById('drawCanvas');
@@ -10,9 +22,9 @@ const applyCameraButton = document.getElementById("applyCameraButton");
 const filterSelect = document.getElementById("filterSelect");
 const applyFilterButton = document.getElementById("applyFilterButton");
 
-let currentFilter = filters.noneFilter;;
+let currentFilter = filters.noneFilter;
 
-const initCameraSelect = async() => {
+const initCameraSelect = async () => {
     cameraSelect.innerHTML = "";
     const devices = await navigator.mediaDevices.enumerateDevices();
     for (device of devices) {
@@ -28,24 +40,13 @@ const initCameraSelect = async() => {
     }
 };
 
-const initFilterSelect = async() => {
-    const filterObject = {
-        "없음": filters.noneFilter,
-        "흑백": filters.grayscaleFilter,
-        "밝게": filters.lightFilter,
-        "어둡게": filters.darkFilter,
-        "빨간색 제거": filters.removeRedFilter,
-        "파란색 제거": filters.removeBlueFilter,
-        "초록색 제거": filters.removeGreenFilter,
-        "노이즈 제거": filters.meanBlurFilter,
-        "예술": filters.artFilter,
-    };
+const initFilterSelect = async () => {
 
     filterSelect.innerHTML = "";
     for (const [key, value] of Object.entries(filterObject)) {
         let option = document.createElement("option");
         option.innerHTML = key;
-        option.value = value;
+        option.value = key;
         filterSelect.appendChild(option);
     }
     if (filterSelect.children.length > 0) {
@@ -53,7 +54,7 @@ const initFilterSelect = async() => {
     }
 };
 
-const init = async() => {
+const init = async () => {
     try {
         await initCameraSelect();
         initFilterSelect();
@@ -64,7 +65,7 @@ const init = async() => {
 }
 
 //events
-applyCameraButton.addEventListener('click', async() => {
+applyCameraButton.addEventListener('click', async () => {
 
     const deviceId = cameraSelect.value;
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -80,7 +81,7 @@ applyCameraButton.addEventListener('click', async() => {
 });
 
 applyFilterButton.addEventListener('click', () => {
-    currentFilter = filterSelect.value;
+    currentFilter = filterObject[filterSelect.value];
 });
 
 video.addEventListener('play', () => {
@@ -88,7 +89,7 @@ video.addEventListener('play', () => {
 
         copyCanvasCtx.drawImage(video, 0, 0, copyCanvas.width, copyCanvas.height);
         let frame = copyCanvasCtx.getImageData(0, 0, copyCanvas.width, copyCanvas.height);
-        currentFilter(drawCanvas, frame);
+        currentFilter(drawCanvasCtx, frame);
         requestAnimationFrame(step)
     }
     requestAnimationFrame(step);

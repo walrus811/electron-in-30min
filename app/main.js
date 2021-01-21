@@ -16,10 +16,10 @@ if (!fs.existsSync(global.DEFAULT_JOB_LIST)) {
 }
 
 if (!fs.existsSync(global.DEFAULT_JOB_LIST_FILE)) {
-    fs.writeFile(global.DEFAULT_JOB_LIST_FILE, JSON.stringify([]), () => { });
+    fs.writeFile(global.DEFAULT_JOB_LIST_FILE, JSON.stringify([]), () => {});
 }
 
-const ICON_PATH = 'app/static/camera.png';
+const ICON_PATH = require('path').join(__dirname, 'static/camera.png');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -33,7 +33,7 @@ function createWindow() {
         }
     })
     win.setIcon(ICON_PATH);
-    win.loadFile('app/render/index.html')
+    win.loadFile(require('path').join(__dirname, 'render/index.html'));
 }
 
 app.whenReady().then(createWindow)

@@ -4,13 +4,17 @@
     "description": "",
     "main": "app/main.js",
     "scripts": {
-        "start": "npx electron ."
+        "start": "npx electron .",
+        "build": " npx electron-packager . --platform=darwin,win32 --arch=x64 --overwrite --out=release",
+        "build-mac": " npx electron-packager . --platform=darwin --arch=x64 --overwrite --out=release",
+        "build-win": " npx electron-packager . --platform=win32 --arch=x64 --overwrite --out=release"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "bootstrap": "^4.6.0"
+        "bootstrap": "^4.6.0",
+        "electron-packager": "^15.2.0"
     },
     "devDependencies": {
         "electron": "^11.2.0",

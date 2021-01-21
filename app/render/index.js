@@ -1,7 +1,6 @@
 const fs = require('fs');
 const cp = require("child_process");
 const path = require('path');
-
 const global = require('../global');
 
 const utility = require('../util/utility');
@@ -51,11 +50,10 @@ const initJobFileList = (jobList) => {
         newStartButton.onclick = () => {
             try {
                 if (process.platform == 'darwin') {
-                    cp.execSync(`open -R ${job.path}/`,);
+                    cp.execSync(`open -R ${job.path}/`, );
                 } else if (process.platform == 'win32') {
                     cp.execSync(`explorer.exe ${job.path}\\`);
-                } else {
-                    ;
+                } else {;
                 }
             } catch (err) {
                 console.log(`can't open ${job.path}`, err);
@@ -67,7 +65,7 @@ const initJobFileList = (jobList) => {
     }
 };
 
-const initCameraSelect = async () => {
+const initCameraSelect = async() => {
     cameraSelect.innerHTML = "";
     const devices = await navigator.mediaDevices.enumerateDevices();
     for (device of devices) {
@@ -83,7 +81,7 @@ const initCameraSelect = async () => {
     }
 };
 
-const initFilterSelect = async () => {
+const initFilterSelect = async() => {
 
     filterSelect.innerHTML = "";
     for (const [key, value] of Object.entries(filterObject)) {
@@ -97,7 +95,7 @@ const initFilterSelect = async () => {
     }
 };
 
-const init = async () => {
+const init = async() => {
     try {
         await initCameraSelect();
         initFilterSelect();
@@ -110,7 +108,7 @@ const init = async () => {
 }
 
 //events
-applyCameraButton.addEventListener('click', async () => {
+applyCameraButton.addEventListener('click', async() => {
     const deviceId = cameraSelect.value;
     const stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
@@ -156,19 +154,17 @@ captureButton.addEventListener('click', () => {
         noti.onclick = () => {
             try {
                 if (process.platform == 'darwin') {
-                    cp.execSync(`open -R ${savePath}/`,);
+                    cp.execSync(`open -R ${savePath}/`, );
                 } else if (process.platform == 'win32') {
                     cp.execSync(`explorer.exe ${savePath}\\`);
-                } else {
-                    ;
+                } else {;
                 }
             } catch (err) {
                 console.log(`can't open ${savePath}`, err);
             }
         }
 
-    }
-    catch (err) {
+    } catch (err) {
         console.log("can't write file", err);
     }
 });
@@ -176,11 +172,10 @@ captureButton.addEventListener('click', () => {
 openFolder.addEventListener('click', () => {
     try {
         if (process.platform == 'darwin') {
-            cp.execSync(`open -R ${global.DEFAULT_OUTPUT_PATH}/`,);
+            cp.execSync(`open -R ${global.DEFAULT_OUTPUT_PATH}/`, );
         } else if (process.platform == 'win32') {
             cp.execSync(`explorer.exe ${global.DEFAULT_OUTPUT_PATH}\\`);
-        } else {
-            ;
+        } else {;
         }
     } catch (err) {
         console.log(`can't open ${global.DEFAULT_OUTPUT_PATH}`, err);

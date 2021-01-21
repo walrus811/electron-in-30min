@@ -4,6 +4,7 @@
 
 ![샘플](https://github.com/walrus811/filterc/blob/main/sample.png)
 
+---
 ## 챕터
 ### A. 시작
 ### B. 파일 IO
@@ -116,19 +117,23 @@ npm start
 => app 폴더에 압축 풀기
 
 ```
-filterc
-│  package.json
-│
-└─app
-    │  main.js
+└─filterc
+    │  package.json
     │
-    ├─render
-    │      index.css
-    │      index.html
-    │      index.js
-    │
-    └─util
-            filters.js
+    └─app
+        │  main.js
+        │
+        ├─render
+        │      index.css
+        │      index.html
+        │      index.js
+        │
+        ├─static
+        │      camera.png
+        │
+        └─util
+                filters.js
+                utility.js
 ```
 
 11. 실행 해보기
@@ -139,6 +144,9 @@ npm start
 ---
 ## B. 파일 IO
 12. 캡쳐 기능 추가
+```
+
+```
 
 ---
 ## C. Custom API

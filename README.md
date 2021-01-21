@@ -1,5 +1,7 @@
 # 30분만에 마스터하는 Electron
 
+![샘플](https://github.com/walrus811/filterc/blob/main/sample.png)
+
 ## 챕터
 ### A. 시작
 ### B. 파일 IO

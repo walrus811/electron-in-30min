@@ -150,10 +150,10 @@ captureButton.addEventListener('click', () => {
         jobList.push({ "date": (new Date()).toString(), "path": savePath });
         fs.writeFileSync(global.DEFAULT_JOB_LIST_FILE, JSON.stringify(jobList));
         initJobFileList(jobList);
-        const myNotification = new Notification('Filter C', {
+        const noti = new Notification('Filter C', {
             body: `캡쳐 완료(${savePath})!`
         });
-        myNotification.onclick = () => {
+        noti.onclick = () => {
             try {
                 if (process.platform == 'darwin') {
                     cp.execSync(`open -R ${savePath}/`,);

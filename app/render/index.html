@@ -32,10 +32,33 @@
         </div>
     </div>
 
-    <video id="video" autoplay></video>
-    <canvas width="300" height="300" id="copyCanvas" hidden></canvas>
-    <canvas width="300" height="300" id="drawCanvas"></canvas>
-    <div id="show"></div>
+    <div class="row m-2">
+        <div class="col-6">
+            <video id="video" autoplay></video>
+        </div>
+        <div class="col-6">
+            <canvas width="300" height="300" id="copyCanvas" hidden></canvas>
+            <canvas width="300" height="300" id="drawCanvas"></canvas>
+        </div>
+    </div>
+    </div>
+    <div class="row m-2">
+        <div class="btn-group" role="group">
+            <button id="captureButton" type="button" class="btn btn-danger">캡쳐</button>
+            <button id="openFolder" type="button" class="btn btn-warning">폴더 열기</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="bg-secondary text-light">
+            <span class="m-3">작업 목록</span>
+        </div>
+        <div>
+            <ul id="jobListElement" class="list-group">
+            </ul>
+        </div>
+
+    </div>
 
     <script src="index.js"></script>
 </body>

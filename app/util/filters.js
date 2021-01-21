@@ -1,5 +1,5 @@
 function shuffle(array) {
-    var currentIndex = array.length,
+    let currentIndex = array.length,
         temporaryValue, randomIndex;
 
     while (0 !== currentIndex) {
@@ -17,7 +17,7 @@ const noneFilter = (putCanvasCtx, frame) => {
 }
 
 const grayscaleFilter = (putCanvasCtx, frame) => {
-    let len = frame.data.length / 4;
+    const len = frame.data.length / 4;
     for (let i = 0; i < len; i++) {
         const rIndex = i * 4 + 0;
         const gIndex = i * 4 + 1;
@@ -30,7 +30,7 @@ const grayscaleFilter = (putCanvasCtx, frame) => {
     putCanvasCtx.putImageData(frame, 0, 0);
 }
 const brightnessFilter = (putCanvasCtx, frame, brightness) => {
-    let len = frame.data.length / 4;
+    const len = frame.data.length / 4;
 
     for (let i = 0; i < len; i++) {
         const rIndex = i * 4 + 0;
@@ -52,7 +52,7 @@ const darkFilter = (putCanvasCtx, frame, brightness) => {
 }
 
 const removeRedFilter = (putCanvasCtx, frame) => {
-    let len = frame.data.length / 4;
+    const len = frame.data.length / 4;
 
     for (let i = 0; i < len; i++) {
         const rIndex = i * 4 + 0;
@@ -62,7 +62,7 @@ const removeRedFilter = (putCanvasCtx, frame) => {
 }
 
 const removeGreenFilter = (putCanvasCtx, frame) => {
-    let len = frame.data.length / 4;
+    const len = frame.data.length / 4;
 
     for (let i = 0; i < len; i++) {
         const gIndex = i * 4 + 1;
@@ -72,7 +72,7 @@ const removeGreenFilter = (putCanvasCtx, frame) => {
 }
 
 const removeBlueFilter = (putCanvasCtx, frame) => {
-    let len = frame.data.length / 4;
+    const len = frame.data.length / 4;
 
     for (let i = 0; i < len; i++) {
         const bIndex = i * 4 + 2;

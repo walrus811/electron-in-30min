@@ -290,7 +290,7 @@ explorer %USERPROFILE%\filterc\output
 
 ### OS X
 ```bash
-OPEN -R ~/filterc/output
+Open -R ~/filterc/output
 ```
 
 16. 폴더 열기

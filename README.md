@@ -86,7 +86,7 @@ function createWindow() {
         }
     })
 
-    win.loadFile(require('path').path.join(__dirname, 'render/index.html'));
+    win.loadFile(require('path').join(__dirname, 'render/index.html'));
 }
 
 app.whenReady().then(createWindow)

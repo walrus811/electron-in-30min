@@ -238,7 +238,7 @@ OPEN -R ~/filterc
 ```
 
 14. 캡쳐 기능 추가(캔버스 이미지 버퍼 변환)
-### app/main.js
+### app/renderer/index.js
 ```js
 //소스 코드 최상위에 필요한 node 라이브러리 임포트
 const fs = require('fs');
@@ -247,7 +247,7 @@ const path = require('path');
 const global = require('../global');
 ```
 
-### app/main.js
+### app/renderer/index.js
 [Buffer](https://nodejs.org/api/buffer.html#buffer_static_method_buffer_alloc_size_fill_encoding)
 
 ```js
@@ -295,7 +295,7 @@ Open -R ~/filterc/output
 
 16. 폴더 열기
 
-### app/main.js
+### app/renderer/index.js
 [process.platform](https://nodejs.org/api/process.html#process_process_platform)
 [child_process.execSync](https://nodejs.org/api/child_process.html#child_process_child_process_execsync_command_options)
 
@@ -369,7 +369,7 @@ npm start
 [Notification](https://www.electronjs.org/docs/api/notification)
 
 20. 작업 완료 알림 추가
-### app/main.js
+### app/renderer/index.js
 ```js
 
 captureButton.addEventListener('click', () => {
@@ -392,7 +392,7 @@ npm start
 ```
 
 22. Notification 클릭 이벤트
-### app/main.js
+### app/renderer/index.js
 ```js
 
 captureButton.addEventListener('click', () => {

@@ -109,13 +109,9 @@ app.on('activate', () => {
 npm start
 ```
 
-10. renderer 파일 복사
+10. 레포지토리 clone
 
-다운로드 : https://devcloud.malgn.com/index.php/s/TGWjxWQH4RRXWT7
-
-비밀번호 : 비밀
-
-=> app 폴더에 압축 풀기
+해당 레포지토리를 clone하고 app/render 내용을 동일한 위치에 복사
 
 ```bash
 └─filterc
@@ -143,6 +139,8 @@ npm start
 ```
 
 12. 아이콘 추가
+
+*아이콘은 *
 
 ### app/main.js
 ```js
